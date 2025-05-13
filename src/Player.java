@@ -11,7 +11,11 @@ public class Player {
     private int farmers;
     private int warriors;
 
+
+    //Level ups
     boolean workerMsg;
+    boolean farmerMsg;
+    boolean shopMsg;
 
     public Player(String name) {
         this.name = name;
@@ -116,10 +120,21 @@ public class Player {
         }
         levelUps();
     }
+
     public void levelUps() {
-        if (this.level > 1 && !workerMsg) {
+
+        if (this.level >= 2 && !workerMsg) {
             System.out.println("~~~Workers unlocked~~~");
             workerMsg = true;
+        }
+        if (this.level >= 5 && !farmerMsg) {
+            System.out.println("~~~Farmers unlocked~~~");
+            farmerMsg = true;
+        }
+        if (this.level >= 7 && !shopMsg) {
+            System.out.println("~~~Shop unlocked~~~");
+            System.out.println("~~~Warriors unlocked~~~");
+            shopMsg = true;
         }
     }
 }
